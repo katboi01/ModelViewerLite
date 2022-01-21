@@ -101,5 +101,50 @@ body {
     transform: rotate(360deg);
   }
 }
-
-
+.unity-load-button {
+    display: inline-block;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    height: 40px;
+    padding: 0 20px;
+    width: auto;
+    background: orange;
+    overflow: visible;
+    appearance: none;
+    transition: all 0.1s ease-out;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    line-height: 40px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 2px 4px rgba(189, 189, 189, 0.5);
+}
+.unity-load-button:focus {
+    outline: none;
+}
+.unity-load-button:focus, .unity-load-button:hover {
+    opacity: 0.85;
+    cursor: pointer;
+    transform: translate(-50%, -50%) scale(1.025);
+    box-shadow: 0 2px 8px rgba(189, 189, 189, 0.5);
+}
+.unity-load-button:active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.unity-load-button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+    transform: translate(-50%, -50%) scale(0.9);
+    box-shadow: 0 2px 4px rgba(189, 189, 189, 0.5);
+    opacity: 0.85;
+}
