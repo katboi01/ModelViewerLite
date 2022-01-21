@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-216813981-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-216813981-1');
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -12,7 +21,6 @@
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
     </div>
-	<button id="unity-load-button" class="unity-load-button">Load Viewer</button>
     <div id="loading-cover" style="display:none;">
       <div id="unity-loading-bar">
         <div id="unity-logo"><img src="logo.png"></div>
@@ -69,14 +77,7 @@
 
       const script = document.createElement("script");
       script.src = loaderUrl;
-	  container.style.display = "none";
-      loadingCover.style.display = "none";
-	  var loadButton = document.querySelector("#unity-load-button");
-      loadButton.addEventListener("click", function() {
-		  container.style.display = "";
-		  loadingCover.style.display = "";
-		loadButton.style.display = "none";
-		loadButton.disabled = true;
+      script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           spinner.style.display = "none";
           progressBarEmpty.style.display = "";
@@ -94,7 +95,7 @@
         }).catch((message) => {
           alert(message);
         });
-      });
+      };
       document.body.appendChild(script);
     </script>
   </body>
