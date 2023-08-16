@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-216813981-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-216813981-1');
-    </script>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -32,18 +23,17 @@
     </div>
     <div id="unity-fullscreen-button" style="display: none;"></div>
     <script>
-	    console.error = function() {}.bind(console.error);
       const hideFullScreenButton = "true";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/WebGL.loader.js";
+      const loaderUrl = buildUrl + "/ModelViewerLite.loader.js";
       const config = {
-        dataUrl: buildUrl + "/WebGL.data",
-        frameworkUrl: buildUrl + "/WebGL.framework.js",
-        codeUrl: buildUrl + "/WebGL.wasm",
+        dataUrl: buildUrl + "/ModelViewerLite.data",
+        frameworkUrl: buildUrl + "/ModelViewerLite.framework.js",
+        codeUrl: buildUrl + "/ModelViewerLite.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Katboi01",
         productName: "KF3ModelViewerLite",
-        productVersion: "1.0.0",
+        productVersion: "1.0.1",
       };
 
       const container = document.querySelector("#unity-container");
@@ -71,6 +61,7 @@
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         container.className = "unity-mobile";
+        //config.devicePixelRatio = 1;
       }
       loadingCover.style.display = "";
 
